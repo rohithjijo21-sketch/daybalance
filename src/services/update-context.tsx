@@ -22,7 +22,11 @@ type Updates = {
 };
 const Context = createContext<Updates | null>(null);
 export function UpdateProvider({ children }: { children: React.ReactNode }) {
-  const version = Constants.expoConfig?.version ?? "0.0.0";
+  const bundledVersion: string = require("../../package.json").version;
+  const version =
+    Platform.OS === "web"
+      ? bundledVersion
+      : (Constants.expoConfig?.version ?? bundledVersion);
   const [release, setRelease] = useState<AppRelease | null>(null);
   const [checking, setChecking] = useState(false);
   const [message, setMessage] = useState("");

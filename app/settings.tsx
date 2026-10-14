@@ -2,7 +2,7 @@ import { TimeField } from "../src/ui/pickers";
 import { UpdateControls } from "../src/ui/update-controls";
 import { showAlert } from "../src/ui/dialogs";
 import { errorMessage } from "../src/domain/errors";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { useStore } from "../src/data/store";
 import { emptyState, settingsSchema } from "../src/domain/model";
@@ -24,6 +24,13 @@ import { edit } from "../src/ui/records";
 export default function Settings() {
   const { state, mutate } = useStore();
   const [draft, setDraft] = useState(state?.settings ?? emptyState().settings);
+  const hydrated = useRef(!!state);
+  useEffect(() => {
+    if (state && !hydrated.current) {
+      setDraft(state.settings);
+      hydrated.current = true;
+    }
+  }, [state]);
   const [message, setMessage] = useState("");
   const [working, setWorking] = useState(false);
   const [confirmation, setConfirmation] = useState("");
@@ -190,8 +197,9 @@ export default function Settings() {
       <Section title="Your data" />
       <Card>
         <Txt>
-          No account, analytics, advertising, or external data services. Records
-          stay in local SQLite storage.
+          No account, analytics or advertising. Records stay in local SQLite
+          storage. Update checks contact GitHub without sending your app
+          records.
         </Txt>
         <Button
           secondary
