@@ -1,4 +1,5 @@
 import { TimeField } from "../src/ui/pickers";
+import { UpdateControls } from "../src/ui/update-controls";
 import { showAlert } from "../src/ui/dialogs";
 import { errorMessage } from "../src/domain/errors";
 import React, { useState } from "react";
@@ -103,6 +104,7 @@ export default function Settings() {
   }
   return (
     <Screen title="Settings" subtitle="Local, private, and yours" back>
+      <UpdateControls />
       <Section title="Personalize your space" />
       <Card>
         <Field

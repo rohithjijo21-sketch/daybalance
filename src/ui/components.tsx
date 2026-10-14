@@ -24,6 +24,7 @@ import { fonts } from "./typography";
 import Svg, { Circle } from "react-native-svg";
 import { HabitSymbol, habitIcons } from "./icons";
 import { CalendarPicker } from "./pickers";
+import { useUpdates } from "../services/update-context";
 export function useTheme() {
   const { state } = useStore();
   const system = useColorScheme();
@@ -263,6 +264,7 @@ export function Screen({
 }) {
   const c = useTheme();
   const { state, error, notice, reload } = useStore();
+  const updates = useUpdates();
   return (
     <SafeAreaView
       edges={["top", "left", "right"]}
@@ -341,6 +343,25 @@ export function Screen({
               </Pressable>
             )}
           </Row>
+          {state && updates.release && !updates.dismissed && (
+            <Card tone="soft">
+              <Txt style={{ fontWeight: "600", fontSize: 18 }}>
+                Update available
+              </Txt>
+              <Txt muted>
+                DayBalance {updates.release.version} is ready. Download the APK
+                and open it to update your app.
+              </Txt>
+              <Row>
+                <Button
+                  title="Update app"
+                  onPress={() => void updates.download()}
+                />
+                <Button secondary title="Later" onPress={updates.dismiss} />
+              </Row>
+              {!!updates.message && <Txt muted>{updates.message}</Txt>}
+            </Card>
+          )}
           {!!error && (
             <Card>
               <Text accessibilityRole="alert" style={{ color: c.danger }}>

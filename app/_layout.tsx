@@ -6,6 +6,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StoreProvider } from "../src/data/store";
+import { UpdateProvider } from "../src/services/update-context";
 import { useTheme } from "../src/ui/components";
 function Navigation() {
   const c = useTheme();
@@ -51,7 +52,9 @@ export default function Layout() {
   return (
     <SafeAreaProvider>
       <StoreProvider>
-        <Navigation />
+        <UpdateProvider>
+          <Navigation />
+        </UpdateProvider>
       </StoreProvider>
     </SafeAreaProvider>
   );

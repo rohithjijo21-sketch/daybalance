@@ -89,6 +89,8 @@ The test harness mocks the Expo transport with Node's real SQLite engine. It tes
 
 ## Privacy and limits
 
+Android checks the public GitHub Releases API for a newer installable version on launch/foreground, at most once every six hours. Settings also has Check for updates. A notice opens the official APK download; Android requires installation confirmation. Older versions need one manual APK installation to gain this feature. Checks send no app records; network errors leave offline features usable.
+
 No account, analytics, advertising, backend, bank connections, AI services, subscriptions, or social features. Exported files are only passed to the device share sheet or downloaded locally. App data is local, but not separately encrypted; exported backups are plain JSON/CSV.
 
 Native notification delivery, OS permission prompts, device share sheets, picker accessibility, and installed-app restart need testing on physical phones or emulators. Daily charts show the last 31 days of a selected range; their summaries cover the whole range. Large datasets use atomic snapshot writes, so very large imports can take longer.

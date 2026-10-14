@@ -18,4 +18,4 @@ The original EAS project is owned by `rohith_jijo`. Keep that project and its si
 
 Forks should create their own Expo project, Android package, and signing credentials rather than attempting to use the original project's build access.
 
-The app does not currently check GitHub for updates automatically. Users install each new release manually.
+Starting in version 1.2.0, Android checks GitHub's latest published release on launch/foreground (at most once every six hours), and Settings offers a manual check. Releases must use a stable `vX.Y.Z` tag and have an uploaded asset named `DayBalance.apk`. Drafts, prereleases, unfinished uploads, and older versions are ignored. Users tap Update to open the APK download, then open it and confirm installation in Android. Older app versions require a manual installation of version1.2.0 once to acquire this feature.
