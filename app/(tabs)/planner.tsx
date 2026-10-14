@@ -1,3 +1,4 @@
+import { DateField } from "../../src/ui/pickers";
 import { View, Pressable } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import React, { useState, useEffect } from "react";
@@ -172,11 +173,7 @@ export default function Planner() {
       <Disclosure title="Move unfinished tasks">
         <Card>
           <Section title="Move unfinished tasks" />
-          <Field
-            label="Move to date (YYYY-MM-DD)"
-            value={move}
-            onChange={setMove}
-          />
+          <DateField label="Move to date" value={move} onChange={setMove} />
           <Button
             secondary
             title="Move all unfinished tasks shown"

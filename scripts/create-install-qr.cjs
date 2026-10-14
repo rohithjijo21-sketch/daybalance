@@ -1,3 +1,4 @@
+/* global __dirname, Buffer */
 // Create a high-contrast installation QR using the QR encoder shipped with Expo's tools.
 const fs = require('node:fs');
 const path = require('node:path');
@@ -9,7 +10,7 @@ if (!encoder) throw new Error('Install project dependencies before generating th
 const QRCode = require(path.join(encoder, 'vendor/QRCode'));
 const levels = require(path.join(encoder, 'vendor/QRCode/QRErrorCorrectLevel'));
 const url = process.argv[2];
-if (!url || !url.startsWith('https://expo.dev/')) throw new Error('Provide the Expo installation URL');
+if (!url || (!url.startsWith('https://expo.dev/') && !url.startsWith('https://github.com/rohithjijo21-sketch/daybalance/releases/'))) throw new Error('Provide the DayBalance installation URL');
 const qr = new QRCode(-1, levels.M);
 qr.addData(url);
 qr.make();

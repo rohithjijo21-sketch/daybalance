@@ -22,6 +22,7 @@ import { isDate } from "../domain/model";
 import { fonts } from "./typography";
 import Svg, { Circle } from "react-native-svg";
 import { HabitSymbol, habitIcons } from "./icons";
+import { CalendarPicker } from "./pickers";
 export function useTheme() {
   const { state } = useStore();
   const system = useColorScheme();
@@ -617,7 +618,7 @@ export function DateNav({
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Change selected date"
-          onPress={() => setEditing(!editing)}
+          onPress={() => setEditing(true)}
           style={{
             flex: 1,
             minHeight: 46,
@@ -644,11 +645,11 @@ export function DateNav({
         />
       </Row>
       {(editing || !isDate(date)) && (
-        <Field
+        <CalendarPicker
           label="Selected day"
           value={date}
           onChange={onChange}
-          placeholder="YYYY-MM-DD"
+          onClose={() => setEditing(false)}
         />
       )}
     </View>

@@ -1,3 +1,4 @@
+import { DateField } from "../../src/ui/pickers";
 import React, { useState } from "react";
 import { View, useWindowDimensions } from "react-native";
 import { BarChart, PieChart } from "react-native-gifted-charts";
@@ -20,7 +21,6 @@ import {
   Card,
   Choices,
   Disclosure,
-  Field,
   Progress,
   Screen,
   Section,
@@ -43,9 +43,9 @@ export default function Insights() {
   if (!valid)
     return (
       <Screen title="Insights">
-        <Field label="Date (YYYY-MM-DD)" value={date} onChange={setDate} />
-        <Field label="From" value={customFrom} onChange={setFrom} />
-        <Field label="To" value={customTo} onChange={setTo} />
+        <DateField label="Date" value={date} onChange={setDate} />
+        <DateField label="From" value={customFrom} onChange={setFrom} />
+        <DateField label="To" value={customTo} onChange={setTo} />
         <Txt>Use valid dates.</Txt>
       </Screen>
     );
@@ -171,19 +171,11 @@ export default function Insights() {
           value={period}
           onChange={setPeriod}
         />
-        <Field
-          label="Date in period (YYYY-MM-DD)"
-          value={date}
-          onChange={setDate}
-        />
+        <DateField label="Date in period" value={date} onChange={setDate} />
         {period === "custom" && (
           <>
-            <Field
-              label="From (YYYY-MM-DD)"
-              value={customFrom}
-              onChange={setFrom}
-            />
-            <Field label="To (YYYY-MM-DD)" value={customTo} onChange={setTo} />
+            <DateField label="From" value={customFrom} onChange={setFrom} />
+            <DateField label="To" value={customTo} onChange={setTo} />
           </>
         )}
       </Disclosure>

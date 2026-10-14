@@ -46,6 +46,8 @@ The browser demo supports data entry, editing, budgets, charts, JSON import/expo
 - **Insights:** habit consistency and streaks, completed/planned tasks, overdue tasks, daily and weekly trends, income/expense comparison, category spending, budgets, and a factual weekly review. Charts use stored records and provide text summaries.
 - **Settings:** name, theme, display currency, week start, reminders, category creation/rename/archive, versioned JSON backup/restore, CSV export, explicit sample loading, and confirmed data deletion.
 
+Dates are selected from a calendar with month/year navigation; budgets have a month grid. Reminder and task times use hour, minute, and AM/PM selection. Optional dates and times can be cleared, and Cancel keeps the existing value. Calendars follow the configured week start and use local dates.
+
 Changing currency keeps the same numeric amounts and relabels them; it does not convert currencies. Supported display currencies use two decimal places: INR, USD, EUR, GBP, AUD, and CAD. Money is stored as safe integer minor units. CSV exports escape quotes and formula-like note prefixes.
 
 ## Structure
@@ -89,7 +91,7 @@ The test harness mocks the Expo transport with Node's real SQLite engine. It tes
 
 No account, analytics, advertising, backend, bank connections, AI services, subscriptions, or social features. Exported files are only passed to the device share sheet or downloaded locally. App data is local, but not separately encrypted; exported backups are plain JSON/CSV.
 
-Native notification delivery, OS permission prompts, device share sheets, mobile keyboard behavior, and installed-app restart need testing on physical phones or emulators. Dates/times currently use clearly labeled text fields rather than platform date pickers. Daily charts show the last 31 days of a selected range; their summaries cover the whole range. Large datasets use atomic snapshot writes, so very large imports can take longer.
+Native notification delivery, OS permission prompts, device share sheets, picker accessibility, and installed-app restart need testing on physical phones or emulators. Daily charts show the last 31 days of a selected range; their summaries cover the whole range. Large datasets use atomic snapshot writes, so very large imports can take longer.
 
 ## References
 

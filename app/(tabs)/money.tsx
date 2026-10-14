@@ -1,3 +1,4 @@
+import { DateField } from "../../src/ui/pickers";
 import { View } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import React, { useState, useEffect } from "react";
@@ -163,15 +164,11 @@ export default function Money() {
         />
         {period === "custom" ? (
           <>
-            <Field label="From (YYYY-MM-DD)" value={from} onChange={setFrom} />
-            <Field label="To (YYYY-MM-DD)" value={to} onChange={setTo} />
+            <DateField label="From" value={from} onChange={setFrom} />
+            <DateField label="To" value={to} onChange={setTo} />
           </>
         ) : (
-          <Field
-            label="Date in period (YYYY-MM-DD)"
-            value={date}
-            onChange={setDate}
-          />
+          <DateField label="Date in period" value={date} onChange={setDate} />
         )}
         {(!valid || end < start) && (
           <Txt>Enter valid dates with the end on or after the start.</Txt>

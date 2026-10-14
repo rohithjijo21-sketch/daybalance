@@ -2,6 +2,10 @@
 
 ## Automated checks
 
+Version 1.1.0 replaces every editable date/month and reminder/task time text field with shared selection controls. TypeScript and lint pass; all 26 tests pass (20 domain, 2 SQLite, 4 calendar/time tests). Calendar tests cover leap years, week-start alignment, six-week months, year rollover, invalid dates, inclusive bounds, midnight and noon.
+
+The live browser demo verified date selection, cancellation without changing the original value, year/month selection and 29 February 2024, budget month selection, selecting 9:30 PM, and clearing an optional time. A 360 × 780 viewport showed the calendar and its actions without clipping. Existing stored records were not changed during picker checks. Physical-device picker interaction remains untested.
+
 | Check                                 | Result               |
 | ------------------------------------- | -------------------- |
 | Strict TypeScript                     | Passed               |

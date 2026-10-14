@@ -1,3 +1,4 @@
+import { DateField, TimeField } from "../src/ui/pickers";
 import { showAlert } from "../src/ui/dialogs";
 import { errorMessage } from "../src/domain/errors";
 import React, { useState } from "react";
@@ -190,8 +191,8 @@ function HabitForm({ p, state }: { p: Params; state: State }) {
         <IconPicker value={h.icon} onChange={(v) => put("icon", v)} />
         <ColorPicker value={h.color} onChange={(v) => put("color", v)} />
       </Disclosure>
-      <Field
-        label="Start date (YYYY-MM-DD)"
+      <DateField
+        label="Start date"
         value={h.start}
         onChange={(v) => put("start", v)}
       />
@@ -229,8 +230,8 @@ function HabitForm({ p, state }: { p: Params; state: State }) {
         />
       )}
       <Disclosure title="Reminder">
-        <Field
-          label="Reminder (optional HH:MM)"
+        <TimeField
+          label="Reminder"
           value={h.reminder ?? ""}
           onChange={(v) => put("reminder", v || null)}
         />
@@ -301,8 +302,10 @@ function CheckinForm({ p, state }: { p: Params; state: State }) {
   }
   return (
     <Screen title={h.name} subtitle="Edit check-in" back>
-      <Field
-        label="Date (YYYY-MM-DD)"
+      <DateField
+        label="Date"
+        min={h.start}
+        max={localDate()}
         value={date}
         onChange={(d) => {
           setDate(d);
@@ -432,8 +435,8 @@ function TaskForm({ p, state }: { p: Params; state: State }) {
         />
       )}
       <Field label="Title" value={t.title} onChange={(v) => put("title", v)} />
-      <Field
-        label="Planned date (YYYY-MM-DD)"
+      <DateField
+        label="Planned date"
         value={t.date}
         onChange={(v) => put("date", v)}
       />
@@ -450,13 +453,13 @@ function TaskForm({ p, state }: { p: Params; state: State }) {
           onChange={(v) => put("notes", v)}
           multiline
         />
-        <Field
-          label="Start time (optional HH:MM)"
+        <TimeField
+          label="Start time"
           value={t.startTime ?? ""}
           onChange={(v) => put("startTime", v || null)}
         />
-        <Field
-          label="End time (optional HH:MM)"
+        <TimeField
+          label="End time"
           value={t.endTime ?? ""}
           onChange={(v) => put("endTime", v || null)}
         />
@@ -471,8 +474,8 @@ function TaskForm({ p, state }: { p: Params; state: State }) {
           value={t.category}
           onChange={(v) => put("category", v)}
         />
-        <Field
-          label="Reminder (optional HH:MM)"
+        <TimeField
+          label="Reminder"
           value={t.reminder ?? ""}
           onChange={(v) => put("reminder", v || null)}
         />
@@ -482,8 +485,10 @@ function TaskForm({ p, state }: { p: Params; state: State }) {
               value={t.recurrence}
               onChange={(v) => put("recurrence", v)}
             />
-            <Field
+            <DateField
+              optional
               label="Recurrence end date (optional)"
+              min={t.date}
               value={t.until ?? ""}
               onChange={(v) => put("until", v || null)}
             />
@@ -604,11 +609,7 @@ function TransactionForm({ p, state }: { p: Params; state: State }) {
         value={t.categoryId}
         onChange={(v) => put("categoryId", v)}
       />
-      <Field
-        label="Date (YYYY-MM-DD)"
-        value={t.date}
-        onChange={(v) => put("date", v)}
-      />
+      <DateField label="Date" value={t.date} onChange={(v) => put("date", v)} />
       <Field
         label="Note (optional)"
         value={t.note}
@@ -783,13 +784,15 @@ function RecurringForm({ p, state }: { p: Params; state: State }) {
         value={r.categoryId}
         onChange={(v) => put("categoryId", v)}
       />
-      <Field
-        label="Start date (YYYY-MM-DD)"
+      <DateField
+        label="Start date"
         value={r.start}
         onChange={(v) => put("start", v)}
       />
-      <Field
+      <DateField
+        optional
         label="End date (optional)"
+        min={r.start}
         value={r.end ?? ""}
         onChange={(v) => put("end", v || null)}
       />
@@ -868,7 +871,7 @@ function BudgetForm({ p, state }: { p: Params; state: State }) {
   }
   return (
     <Screen title="Monthly budget" back>
-      <Field label="Month (YYYY-MM)" value={month} onChange={setMonth} />
+      <DateField monthOnly label="Month" value={month} onChange={setMonth} />
       <Button
         title="Overall monthly expenses"
         secondary={category !== null}

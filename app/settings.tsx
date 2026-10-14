@@ -1,3 +1,4 @@
+import { TimeField } from "../src/ui/pickers";
 import { showAlert } from "../src/ui/dialogs";
 import { errorMessage } from "../src/domain/errors";
 import React, { useState } from "react";
@@ -142,8 +143,8 @@ export default function Settings() {
           value={draft.notifications ? "on" : "off"}
           onChange={(v) => setDraft({ ...draft, notifications: v === "on" })}
         />
-        <Field
-          label="Evening check-in reminder (optional HH:MM)"
+        <TimeField
+          label="Evening check-in reminder"
           value={draft.evening ?? ""}
           onChange={(v) =>
             setDraft({
