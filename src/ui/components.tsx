@@ -2,6 +2,7 @@ import { showAlert } from "./dialogs";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -295,7 +296,18 @@ export function Screen({
               </Pressable>
             )}
             <View style={{ flex: 1 }}>
-              {!back && <Eyebrow>DAYBALANCE</Eyebrow>}
+              {!back && (
+                <View
+                  style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
+                >
+                  <Image
+                    source={require("../../assets/brand/icon.png")}
+                    accessibilityLabel="DayBalance logo"
+                    style={{ width: 24, height: 24, borderRadius: 7 }}
+                  />
+                  <Eyebrow>DAYBALANCE</Eyebrow>
+                </View>
+              )}
               <Txt
                 large
                 style={{
