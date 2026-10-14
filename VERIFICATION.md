@@ -2,6 +2,10 @@
 
 ## Automated checks
 
+Final version 1.2.1 Android build `bbb13f98-11ef-4636-b4ef-36f6302a95f3` completed successfully on 14 October 2026 at 22:55 IST. Downloaded APK size: 100,563,551 bytes. ZIP integrity passed and AndroidManifest.xml, classes.dex, and the embedded JavaScript bundle are present. SHA-256: `3c25901b88c9d5a9eab074182d30b2e19fdf185a2644a733d2bb7352e27e1ab7`. Physical phone installation and native update confirmation remain untested.
+
+The new original terracotta/cream icon assets were visually inspected, verified as PNGs, and configured for the launcher, Android adaptive/themed icons, and web favicon. TypeScript and lint passed after adding the header logo and update controls. The live Settings check completed without offering an older public release as a downgrade; cold reload preserved Rohith's saved name/theme and displayed version 1.2.1 correctly.
+
 Version 1.2.0 adds GitHub update discovery, a dismissible in-app update card, and Settings controls. TypeScript/lint and all30 tests pass. Four new release tests cover numeric version comparison/no downgrades, stable published APK requirements, download destination validation, and missing-release/server-error handling. Native browser download/installer confirmation still needs a phone check.
 
 Version 1.1.0 replaces every editable date/month and reminder/task time text field with shared selection controls. TypeScript and lint pass; all 26 tests pass (20 domain, 2 SQLite, 4 calendar/time tests). Calendar tests cover leap years, week-start alignment, six-week months, year rollover, invalid dates, inclusive bounds, midnight and noon.

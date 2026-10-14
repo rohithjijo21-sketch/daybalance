@@ -19,9 +19,11 @@ Node and pnpm versions are pinned in `eas.json` to match the verified local tool
 
 ## Install on the phone
 
-The signed Android APK (version 1.0.0, package `com.daybalance.app`) is ready: [Download DayBalance](https://expo.dev/artifacts/eas/CW5VdNPIvrXANZdIkP56d3hrLhpuDxpZeLyfyX7tmRA.apk). The local copy is `DayBalance.apk`; `DayBalance-install.png` contains the same download link.
+The signed Android APK (version 1.2.1, Android version code 5, package `com.daybalance.app`) is ready: [Download DayBalance](https://github.com/rohithjijo21-sketch/daybalance/releases/download/v1.2.1/DayBalance.apk). The local copy is `DayBalance.apk`; `DayBalance-install.png` contains the same download link.
 
-[Completed build](https://expo.dev/accounts/rohith_jijo/projects/daybalance/builds/31686354-57dc-4fd6-8217-423bb2927680), owned by `rohith_jijo`, finished on 14 October 2026. APK SHA-256: `8a54a8314861cc360540147295aaf3686c62ca195829b2d348b6089d5ecd07fc`.
+[Completed build](https://expo.dev/accounts/rohith_jijo/projects/daybalance/builds/bbb13f98-11ef-4636-b4ef-36f6302a95f3), owned by `rohith_jijo`, finished on 14 October 2026 at 10:55 PM IST. APK SHA-256: `3c25901b88c9d5a9eab074182d30b2e19fdf185a2644a733d2bb7352e27e1ab7`.
+
+For an existing installation, export a JSON backup first and install this APK over the app. The signing key and package are unchanged; uninstalling removes local records. Older versions need this manual installation once to get in-app update notices. Future Update buttons open the newer GitHub APK download, and Android requires installation confirmation.
 
 1. Open the completed EAS build's installation link on your Android phone.
 2. Download the APK and open it.

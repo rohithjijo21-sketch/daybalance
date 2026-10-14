@@ -8,7 +8,7 @@ A local-first Android and iOS app for habits, daily plans, income, expenses, and
 
 Download `DayBalance.apk` from [GitHub Releases](https://github.com/rohithjijo21-sketch/daybalance/releases/latest), open it on your Android phone, and follow the installation prompts. It runs independently of Expo Go and your computer. New installations start empty; Settings supports full JSON backup and restore.
 
-The current signed version is also available through [Expo](https://expo.dev/artifacts/eas/CW5VdNPIvrXANZdIkP56d3hrLhpuDxpZeLyfyX7tmRA.apk). See [Android installation and building](INSTALL-ANDROID.md) for details.
+The signed 1.2.1 APK includes calendars, time pickers, the DayBalance icon, and in-app update notices. It is also available through [Expo](https://expo.dev/artifacts/eas/5CtvodeE36__cszDUqLl2BxIuglLfTe1VMZ-U5GePcI.apk). See [Android installation and building](INSTALL-ANDROID.md) for details. Older installations need this APK installed manually once to gain future update notices.
 
 ### Run from source
 
