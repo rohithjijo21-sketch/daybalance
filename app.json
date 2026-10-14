@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "DayBalance",
+    "slug": "daybalance",
+    "version": "1.0.0",
+    "scheme": "daybalance",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.daybalance.app"
+    },
+    "android": {
+      "package": "com.daybalance.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-notifications",
+      "expo-document-picker"
+    ],
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "92861572-10ab-4ba5-b277-1d19bfda0c54"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+coverage/
+*.log
+daybalance-demo.jpg
+daybalance-premium.jpg
+.git/
+DayBalance-*.json
+DayBalance-*.csv
+*.db
+*.db-wal
+*.db-shm
+*.apk
+DayBalance-install.png
+.build-tools/
